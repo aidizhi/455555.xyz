@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /r*.html
+Disallow: /go.html
+Disallow: /pwa.html
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /offline.html
+Disallow: /go
+Disallow: /pwa
+
+Sitemap: https://455555.xyz/sitemap.xml
