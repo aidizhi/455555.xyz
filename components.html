@@ -4,247 +4,168 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<meta name="description" content="UI Component Library - Button, Card, Input, Toggle, Badge, Tooltip, Modal, Accordion, Tabs, Progress Bar, Slider, Checkbox, Radio, Select, Toast, Avatar">
-<meta name="keywords" content="UI components, design-system, component-library, button, card, input, toggle, badge, tooltip, modal, accordion, tabs, progress-bar, slider, checkbox, radio, select, toast, avatar, responsive, accessible, aria, html5, css3, javascript, frontend, web-components">
-<meta name="author" content="UI Engineering Team">
-<link rel="canonical" href="https://aidizhi.github.io/components.html">
-<title>UI Component Library | Accessible Design System</title>
+<meta name="description" content="Material Design Component Library - Floating Action Button, Snackbar, Bottom Sheet, Chips, Data Table, Stepper, Slider, Dialog, Menu, Expansion Panel">
+<meta name="keywords" content="material-design, component-library, fab, snackbar, bottom-sheet, chips, data-table, stepper, slider, dialog, menu, expansion-panel, ripple-effect, elevation, shadow, frontend">
+<meta name="author" content="Material Design Team">
+<link rel="canonical" href="https://455555.xyz/components.html">
+<title>Material Design Components | Google Material UI System</title>
 <style>
-:root{--primary:#7c3aed;--primary-hover:#6d28d9;--secondary:#ec4899;--success:#22c55e;--warning:#f59e0b;--error:#ef4444;--info:#3b82f6;--bg:#0f172a;--surface:#1e293b;--surface-hover:#334155;--text:#f8fafc;--text-muted:#94a3b8;--border:rgba(255,255,255,.1);--radius:12px;--shadow:0 4px 20px rgba(0,0,0,.3)}
+:root{--primary:#1976d2;--primary-light:#42a5f5;--secondary:#e91e63;--surface:#121836;--surface-light:#1a1f4b;--text:#e8eaf6;--text-muted:#7986cb;--border:rgba(255,255,255,.1);--shadow:0 2px 8px rgba(0,0,0,.4)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body{font-family:Roboto,'Segoe UI',sans-serif;background:#0a0e27;color:var(--text);min-height:100vh}
 .container{max-width:1100px;margin:0 auto;padding:40px 20px}
 header{text-align:center;margin-bottom:50px}
-h1{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:12px}
-h1 span{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{color:var(--text-muted);font-size:1rem}
+h1{font-size:clamp(1.8rem,4vw,2.8rem)}h1 span{color:var(--primary-light)}
+.subtitle{color:var(--text-muted);font-size:1rem;margin-top:8px}
 
-.section{margin-bottom:50px}
-.section-title{font-size:1.3rem;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.section-title .count{font-size:.75rem;padding:2px 10px;border-radius:99px;background:var(--surface);color:var(--text-muted)}
+.section{margin-bottom:40px}
+.section-title{font-size:1.15rem;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);color:var(--primary-light)}
+.showcase{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:24px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
 
-.showcase{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:24px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+/* Material Button with Ripple */
+.btn{position:relative;overflow:hidden;padding:10px 24px;border-radius:4px;border:none;font-size:.9rem;font-weight:500;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:box-shadow .2s;background:var(--primary);color:#fff}
+.btn:hover{box-shadow:0 4px 12px rgba(25,118,210,.4)}
+.btn::after{content:'';position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.3) 10%,transparent 10.01%);background-repeat:no-repeat;background-position:50%;transform:scale(4);opacity:0;transition:transform .5s,opacity 1s}
+.btn:active::after{transform:scale(0);opacity:1;transition:0s}
+.btn-outlined{background:transparent;border:1px solid var(--primary);color:var(--primary-light)}
+.btn-text{background:transparent;color:var(--primary-light);box-shadow:none}
 
-/* Buttons */
-.btn{padding:10px 20px;border-radius:var(--radius);border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#fff}
-.btn-primary{background:var(--primary)}.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(124,58,237,.4)}
-.btn-secondary{background:var(--surface-hover);border:1px solid var(--border);color:var(--text)}
-.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
-.btn-success{background:var(--success)}.btn-warning{background:var(--warning);color:#000}.btn-error{background:var(--error)}
-.btn-sm{padding:6px 14px;font-size:.8rem}.btn-lg{padding:14px 28px;font-size:1rem}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+/* FAB */
+.fab{width:56px;height:56px;border-radius:50%;background:var(--secondary);border:none;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 12px rgba(233,30,99,.4);transition:transform .2s;display:flex;align-items:center;justify-content:center}
+.fab:hover{transform:scale(1.1)}
+.fab-mini{width:40px;height:40px;font-size:18px}
 
-/* Cards */
-.card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s;width:240px}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.card-img{height:120px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:2rem}
-.card-body{padding:16px}
-.card-title{font-size:1rem;margin-bottom:6px}
-.card-text{font-size:.85rem;color:var(--text-muted)}
+/* Card Material */
+.mcard{background:var(--surface-light);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);width:260px;transition:box-shadow .2s}
+.mcard:hover{box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.mcard-img{height:100px;background:linear-gradient(135deg,var(--primary),var(--secondary))}
+.mcard-body{padding:16px}
+.mcard-title{font-size:1rem;margin-bottom:6px}
+.mcard-text{font-size:.85rem;color:var(--text-muted)}
 
-/* Inputs */
-.input{padding:10px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s;min-width:220px}
-.input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,58,237,.15)}
-.input::placeholder{color:var(--text-muted)}
+/* Chips */
+.chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:16px;background:var(--surface-light);border:1px solid var(--border);font-size:.8rem;gap:6px;cursor:pointer;transition:background .2s}
+.chip:hover{background:rgba(25,118,210,.15);border-color:var(--primary)}
+.chip-icon{width:18px;height:18px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px}
 
-/* Toggle */
-.toggle{position:relative;width:48px;height:26px;background:var(--surface-hover);border-radius:99px;cursor:pointer;transition:background .3s;border:1px solid var(--border)}
-.toggle::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .3s}
-.toggle.active{background:var(--primary);border-color:var(--primary)}
-.toggle.active::after{transform:translateX(22px)}
+/* Data Table */
+.dtable{width:100%;border-collapse:collapse;font-size:.85rem}
+.dtable th{text-align:left;padding:12px 16px;color:var(--text-muted);font-weight:500;border-bottom:1px solid var(--border)}
+.dtable td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.05)}
+.dtable tr:hover td{background:rgba(25,118,210,.05)}
 
-/* Badge */
-.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:99px;font-size:.75rem;font-weight:600}
-.badge-primary{background:rgba(124,58,237,.2);color:#c4b5fd}.badge-success{background:rgba(34,197,94,.2);color:#86efac}
-.badge-warning{background:rgba(245,158,11,.2);color:#fde047}.badge-error{background:rgba(239,68,68,.2);color:#fca5a5}
+/* Stepper */
+.stepper{display:flex;gap:0;align-items:center}
+.step{display:flex;align-items:center;gap:8px}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600}
+.step-num.inactive{background:var(--surface-light);color:var(--text-muted);border:1px solid var(--border)}
+.step-line{flex:1;height:1px;background:var(--border);min-width:30px;margin:0 8px}
 
-/* Tooltip */
-.tooltip{position:relative;cursor:help}
-.tooltip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) scale(.9);padding:6px 12px;background:var(--surface-hover);color:var(--text);font-size:.75rem;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:all .2s;border:1px solid var(--border)}
-.tooltip:hover::after{opacity:1;transform:translateX(-50%) scale(1)}
+/* Snackbar */
+.snackbar{display:flex;align-items:center;gap:16px;padding:12px 20px;background:#323232;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.5);max-width:400px}
+.snackbar-text{flex:1;font-size:.85rem}
+.snackbar-action{color:var(--primary-light);font-weight:600;font-size:.8rem;text-transform:uppercase;cursor:pointer}
 
-/* Progress */
-.progress{width:200px;height:8px;background:var(--surface-hover);border-radius:99px;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:99px;transition:width .5s ease}
+/* Expansion Panel */
+.epanel{width:100%;max-width:400px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.epheader{padding:14px 18px;background:var(--surface-light);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;transition:background .2s}
+.epheader:hover{background:rgba(25,118,210,.08)}
+.epbody{padding:0 18px;max-height:0;overflow:hidden;transition:all .3s;color:var(--text-muted);font-size:.85rem}
+.epanel.open .epbody{padding:0 18px 14px;max-height:200px}
+.epicon{transition:transform .3s}.epanel.open .epicon{transform:rotate(180deg)}
 
-/* Avatar */
-.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
-.avatar-group{display:flex}.avatar-group .avatar{margin-left:-10px;border:2px solid var(--bg)}
-.avatar-group .avatar:first-child{margin-left:0}
-
-/* Tabs */
-.tabs{display:flex;gap:4px;padding:4px;background:var(--surface-hover);border-radius:var(--radius);width:fit-content}
-.tab{padding:8px 16px;border-radius:8px;border:none;background:transparent;color:var(--text-muted);font-size:.85rem;cursor:pointer;transition:all .2s}
-.tab.active{background:var(--primary);color:#fff}
-
-/* Accordion */
-.accordion{width:100%;max-width:400px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.accordion-item{border-bottom:1px solid var(--border)}
-.accordion-item:last-child{border-bottom:none}
-.accordion-header{padding:14px 18px;background:var(--surface);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;transition:background .2s}
-.accordion-header:hover{background:var(--surface-hover)}
-.accordion-body{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--text-muted);font-size:.85rem}
-.accordion-item.open .accordion-body{padding:0 18px 14px;max-height:200px}
-.accordion-icon{transition:transform .3s}.accordion-item.open .accordion-icon{transform:rotate(180deg)}
-
-/* Toast */
-.toast{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);max-width:320px}
-.toast-icon{font-size:1.2rem}
-.toast-content{flex:1}.toast-title{font-size:.9rem;font-weight:600}.toast-msg{font-size:.8rem;color:var(--text-muted)}
-
-/* Slider */
-.slider{-webkit-appearance:none;appearance:none;width:200px;height:6px;background:var(--surface-hover);border-radius:99px;outline:none}
-.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid var(--bg)}
-.slider::-moz-range-thumb{width:18px;height:18px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid var(--bg)}
-
-/* Checkbox & Radio */
-.checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.9rem}
-.checkbox input{width:18px;height:18px;accent-color:var(--primary);cursor:pointer}
-
-footer{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:40px}
+footer{text-align:center;padding:40px;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:40px}
 </style>
 </head>
 <body>
 <div class="container">
   <header>
-    <h1><span>UI</span> Component Library</h1>
-    <p class="subtitle">Accessible Design System / Pure CSS3 + HTML5 / Zero Dependencies / WCAG 2.1 AA</p>
+    <h1><span>Material</span> Design Components</h1>
+    <p class="subtitle">Elevation / Ripple / Motion / Responsive Grid / Accessibility</p>
   </header>
 
   <div class="section">
-    <div class="section-title">Buttons <span class="count">8 variants</span></div>
+    <div class="section-title">Buttons & FAB</div>
     <div class="showcase">
-      <button class="btn btn-primary">Primary</button>
-      <button class="btn btn-secondary">Secondary</button>
-      <button class="btn btn-success">Success</button>
-      <button class="btn btn-warning">Warning</button>
-      <button class="btn btn-error">Error</button>
-      <button class="btn btn-primary btn-sm">Small</button>
-      <button class="btn btn-primary btn-lg">Large</button>
-      <button class="btn btn-primary" disabled>Disabled</button>
+      <button class="btn">Contained</button>
+      <button class="btn btn-outlined">Outlined</button>
+      <button class="btn btn-text">Text</button>
+      <button class="fab">+</button>
+      <button class="fab fab-mini">&#9998;</button>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Cards <span class="count">3 sizes</span></div>
+    <div class="section-title">Cards</div>
     <div class="showcase">
-      <div class="card"><div class="card-img">&#127775;</div><div class="card-body"><div class="card-title">Feature Card</div><div class="card-text">Responsive card component with hover animation.</div></div></div>
-      <div class="card"><div class="card-img" style="background:linear-gradient(135deg,var(--success),var(--info))">&#128187;</div><div class="card-body"><div class="card-title">Project Card</div><div class="card-text">Showcase project with gradient header.</div></div></div>
-      <div class="card"><div class="card-img" style="background:linear-gradient(135deg,var(--warning),var(--error))">&#128640;</div><div class="card-body"><div class="card-title">Launch Card</div><div class="card-text">High-contrast gradient for emphasis.</div></div></div>
+      <div class="mcard"><div class="mcard-img"></div><div class="mcard-body"><div class="mcard-title">Material Card</div><div class="mcard-text">Elevation shadow system with hover state.</div></div></div>
+      <div class="mcard"><div class="mcard-img" style="background:linear-gradient(135deg,#e91e63,#ff9800)"></div><div class="mcard-body"><div class="mcard-title">Gradient Card</div><div class="mcard-text">Dynamic color theming support.</div></div></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Form Inputs <span class="count">4 types</span></div>
+    <div class="section-title">Chips</div>
     <div class="showcase">
-      <input class="input" type="text" placeholder="Enter username...">
-      <input class="input" type="email" placeholder="email@example.com" value="user@demo.com">
-      <input class="input" type="password" placeholder="Password" value="password123">
-      <input class="input" type="search" placeholder="Search components...">
+      <div class="chip"><span class="chip-icon">&#10003;</span>Active</div>
+      <div class="chip"><span class="chip-icon" style="background:#e91e63">&#10005;</span>Inactive</div>
+      <div class="chip">Filter Chip</div>
+      <div class="chip">Choice Chip</div>
+      <div class="chip">Action Chip</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Toggle & Slider <span class="count">2 types</span></div>
-    <div class="showcase">
-      <div class="toggle active" onclick="this.classList.toggle('active')"></div>
-      <div class="toggle" onclick="this.classList.toggle('active')"></div>
-      <input type="range" class="slider" min="0" max="100" value="65">
-      <input type="range" class="slider" min="0" max="100" value="30">
+    <div class="section-title">Data Table</div>
+    <div class="showcase" style="display:block">
+      <table class="dtable">
+        <tr><th>Name</th><th>Status</th><th>Progress</th><th>Updated</th></tr>
+        <tr><td>Project Alpha</td><td>Active</td><td>75%</td><td>2 min ago</td></tr>
+        <tr><td>Project Beta</td><td>Pending</td><td>30%</td><td>1 hr ago</td></tr>
+        <tr><td>Project Gamma</td><td>Complete</td><td>100%</td><td>1 day ago</td></tr>
+      </table>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Badges <span class="count">4 variants</span></div>
+    <div class="section-title">Stepper</div>
     <div class="showcase">
-      <span class="badge badge-primary">Primary</span>
-      <span class="badge badge-success">Success</span>
-      <span class="badge badge-warning">Warning</span>
-      <span class="badge badge-error">Error</span>
-      <span class="badge badge-primary">v2.0.0</span>
-      <span class="badge badge-success">Stable</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Tooltip <span class="count">hover</span></div>
-    <div class="showcase">
-      <span class="tooltip" data-tip="This is a tooltip message">Hover me</span>
-      <span class="tooltip" data-tip="Keyboard shortcut: Ctrl+K">Shortcut</span>
-      <span class="tooltip" data-tip="Component status: Stable">Status</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Progress <span class="count">animated</span></div>
-    <div class="showcase">
-      <div class="progress"><div class="progress-bar" style="width:25%"></div></div>
-      <div class="progress"><div class="progress-bar" style="width:60%"></div></div>
-      <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Avatar Group <span class="count">stacked</span></div>
-    <div class="showcase">
-      <div class="avatar-group">
-        <div class="avatar">A</div><div class="avatar">B</div><div class="avatar">C</div><div class="avatar">D</div>
+      <div class="stepper">
+        <div class="step"><span class="step-num">1</span>Account</div>
+        <div class="step-line"></div>
+        <div class="step"><span class="step-num">2</span>Profile</div>
+        <div class="step-line"></div>
+        <div class="step"><span class="step-num inactive">3</span>Confirm</div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Tabs <span class="count">segmented</span></div>
+    <div class="section-title">Snackbar</div>
     <div class="showcase">
-      <div class="tabs">
-        <button class="tab active" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">Design</button>
-        <button class="tab" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">Code</button>
-        <button class="tab" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">Preview</button>
+      <div class="snackbar">
+        <span class="snackbar-text">Settings saved successfully</span>
+        <span class="snackbar-action">Undo</span>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Accordion <span class="count">collapsible</span></div>
+    <div class="section-title">Expansion Panel</div>
     <div class="showcase" style="justify-content:flex-start">
-      <div class="accordion">
-        <div class="accordion-item open">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">What is this component library? <span class="accordion-icon">&#9662;</span></div>
-          <div class="accordion-body">A pure CSS3 + HTML5 component collection with zero dependencies, focusing on accessibility and performance.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">Browser support? <span class="accordion-icon">&#9662;</span></div>
-          <div class="accordion-body">Supports all modern browsers: Chrome, Firefox, Safari, Edge. IE11 is not supported.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">Is it accessible? <span class="accordion-icon">&#9662;</span></div>
-          <div class="accordion-body">Yes, all components follow WCAG 2.1 AA guidelines with proper ARIA attributes and keyboard navigation.</div>
-        </div>
+      <div class="epanel open">
+        <div class="epheader" onclick="this.parentElement.classList.toggle('open')">Panel One <span class="epicon">&#9662;</span></div>
+        <div class="epbody">Material Design expansion panels allow users to expand and collapse content sections.</div>
       </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Toast Notification <span class="count">4 variants</span></div>
-    <div class="showcase">
-      <div class="toast"><span class="toast-icon">&#9989;</span><div class="toast-content"><div class="toast-title">Success</div><div class="toast-msg">Operation completed successfully.</div></div></div>
-      <div class="toast"><span class="toast-icon">&#128712;</span><div class="toast-content"><div class="toast-title">Info</div><div class="toast-msg">New version available.</div></div></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Checkbox & Radio <span class="count">form</span></div>
-    <div class="showcase">
-      <label class="checkbox"><input type="checkbox" checked> Remember me</label>
-      <label class="checkbox"><input type="checkbox"> Auto-update</label>
-      <label class="checkbox"><input type="radio" name="theme" checked> Dark mode</label>
-      <label class="checkbox"><input type="radio" name="theme"> Light mode</label>
+      <div class="epanel">
+        <div class="epheader" onclick="this.parentElement.classList.toggle('open')">Panel Two <span class="epicon">&#9662;</span></div>
+        <div class="epbody">Each panel can be expanded independently with smooth CSS transitions.</div>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>Accessible UI Component Library &mdash; Pure HTML5 + CSS3 + JavaScript</p>
-    <p style="margin-top:8px">Technologies: Flexbox, CSS Grid, Custom Properties, Transition, Transform, ARIA, Keyboard Navigation, Focus Management</p>
+    <p>Material Design System &mdash; Elevation, Ripple, Motion Guidelines</p>
+    <p style="margin-top:8px">Technologies: CSS Custom Properties, Transition, Transform, Box-Shadow, Pseudo-elements, ARIA</p>
   </footer>
 </div>
 </body>

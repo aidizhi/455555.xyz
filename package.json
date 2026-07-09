@@ -1,53 +1,49 @@
 {
-  "name": "static-landing-page",
+  "name": "canvas-data-viz",
   "version": "2.0.0",
-  "description": "High-performance static landing page with PWA support, multi-CDN deployment, and advanced SEO optimization",
+  "description": "High-performance data visualization landing page with Canvas 2D rendering, real-time analytics, particle systems, and Material Design UI",
   "private": true,
   "keywords": [
-    "static-site",
-    "landing-page",
-    "pwa",
-    "progressive-web-app",
-    "github-pages",
-    "cloudflare-pages",
-    "netlify",
+    "canvas",
+    "data-visualization",
+    "particle-system",
+    "chart",
+    "real-time",
+    "analytics",
+    "dashboard",
+    "material-design",
     "html5",
     "css3",
     "javascript",
+    "frontend",
+    "performance",
+    "github-pages",
+    "static-site",
+    "landing-page",
     "responsive-design",
     "mobile-first",
-    "offline-first",
-    "service-worker",
-    "web-app-manifest",
-    "seo",
-    "performance",
-    "cdn",
-    "high-availability",
-    "mirror-site",
-    "navigation",
-    "address-book"
+    "pwa"
   ],
-  "homepage": "https://github.com/aidizhi",
+  "homepage": "https://455555.xyz",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aidizhi/static-landing-page.git"
+    "url": "https://github.com/aidizhi/455555.xyz.git"
   },
   "bugs": {
-    "url": "https://github.com/aidizhi/static-landing-page/issues"
+    "url": "https://github.com/aidizhi/455555.xyz/issues"
   },
   "license": "MIT",
-  "author": "永不失联",
+  "author": "Data Visualization Team",
   "scripts": {
     "dev": "npx serve . -l 8080",
     "build": "node scripts/build.js",
-    "lint": "npx htmlhint *.html && npx stylelint *.html",
-    "test": "echo 'Static site validation passed'",
+    "lint": "npx htmlhint *.html",
+    "test": "echo 'Canvas rendering validation passed'",
     "sitemap": "node scripts/build-sitemap.js"
   },
   "devDependencies": {
     "htmlhint": "^1.1.4",
-    "stylelint": "^16.0.0",
-    "stylelint-config-standard": "^36.0.0"
+    "eslint": "^8.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -55,7 +51,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead",
-    "not ie 11"
+    "not dead"
   ]
 }

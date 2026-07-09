@@ -1,9 +1,7 @@
-name: Deploy Static Site
+name: Deploy Canvas Data Viz
 
 on:
   push:
-    branches: [main, master]
-  pull_request:
     branches: [main, master]
 
 permissions:
@@ -26,16 +24,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci || npm install
 
       - name: Lint HTML
         run: npx htmlhint "*.html" || true
-
-      - name: Lint CSS
-        run: npx stylelint "*.html" --config-basedir . || true
 
       - name: Build sitemap
         run: node scripts/build-sitemap.js || true

@@ -39,13 +39,14 @@
 
 | 技术 | 说明 |
 |------|------|
-| HTML5 | 语义化标签，无障碍支持 |
-| CSS3 | 渐变背景、暗黑模式、响应式布局 |
-| Vanilla JS | 无框架依赖，极致轻量 |
+| HTML5 Canvas 2D | 数据可视化渲染引擎，高性能粒子系统 |
+| CSS3 | Material Design 规范，响应式网格，Elevation 阴影 |
+| Vanilla JS | 实时数据流处理，RequestAnimationFrame 优化 |
+| Particle System | 物理模拟，力场计算，碰撞检测 |
 | GitHub Pages | 主站点托管，全球 CDN 加速 |
 | Cloudflare Pages | 边缘节点部署，自动镜像 |
 | Netlify | 自动构建部署，全球加速 |
-| PWA | Service Worker + Manifest，支持离线访问 |
+| PWA | Service Worker + Manifest，离线图表缓存 |
 | CSP / 安全头 | 完整的 Content Security Policy 与 HTTP 安全头策略 |
 
 ---
